@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\Reporting\Services\DashboardService;
+use App\Http\Controllers\AuthController;
 
 Route::get('/', function () {
     return view('app');
@@ -18,3 +19,6 @@ Route::get('/api/dashboard/summary', function () {
     }
     return response()->json(app(DashboardService::class)->getSummaryCounts());
 });
+
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/logout', [AuthController::class, 'logout']);
