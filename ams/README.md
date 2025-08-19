@@ -1,67 +1,61 @@
-## Asist Management System (AMS)
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
 
-Modular, scalable Laravel-based management system for a Uganda STEM organization. Built with Laravel 11+, Service Layer, Repository Pattern, Spatie Permissions, and Filament Admin.
+<p align="center">
+<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
+<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+</p>
 
-### Prerequisites
-- PHP 8.2+
-- Composer 2+
-- Node 18+ (for frontend assets if needed)
-- SQLite/MySQL/PostgreSQL
+## About Laravel
 
-### Quick Start (Recommended)
-1. Create a fresh Laravel 11 project:
-```
-composer create-project laravel/laravel ams
-```
-2. Change into the project directory and require packages:
-```
-cd ams
-composer require spatie/laravel-permission filament/filament livewire/livewire barryvdh/laravel-debugbar maatwebsite/excel laravel/sanctum
-```
-3. Copy the contents of the `modules/`, `app/Providers/ModulesServiceProvider.php`, `config/modules.php`, `database/seeders/RolesAndPermissionsSeeder.php`, and `composer.json` (merge autoload only) from this repo into your Laravel app.
-4. Merge `composer.json` autoload section to include `Modules\\` namespace:
-```
-"autoload": {
-    "psr-4": {
-        "App\\": "app/",
-        "Modules\\": "modules/"
-    }
-}
-```
-Then run:
-```
-composer dump-autoload
-```
-5. Publish Spatie Permission config and run migrations:
-```
-php artisan vendor:publish --provider="Spatie\Permission\PermissionServiceProvider"
-php artisan migrate
-```
-6. Register the modules service provider in `config/app.php` providers array:
-```
-App\Providers\ModulesServiceProvider::class,
-```
-7. Seed base roles/permissions and an admin user:
-```
-php artisan db:seed --class=RolesAndPermissionsSeeder
-```
+Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
-### Core Concepts
-- Modular domains under `modules/` using DDD-style layering: `Models`, `Repositories`, `Services`, `Http`, `Filament`, `Database`.
-- UUID primary keys everywhere using `Modules\Shared\Traits\HasUuid`.
-- Role-based authorization with Spatie. See `Modules\UserManagement\Database\seeders\RolesAndPermissionsSeeder.php`.
-- Filament Admin resources per module under `Filament/Resources`.
-- Module migrations are auto-registered by `ModulesServiceProvider`.
+- [Simple, fast routing engine](https://laravel.com/docs/routing).
+- [Powerful dependency injection container](https://laravel.com/docs/container).
+- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
+- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
+- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
+- [Robust background job processing](https://laravel.com/docs/queues).
+- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-### Domains (initial scaffolding)
-- User Management: Roles, basic messaging, complaints, user profile.
-- School Management: Schools, Clubs, Groups, Lessons, Attendance, Reports.
-- Individual Programs: Programs, Periods, Enrollments, Progress, Certificates.
-- Curriculum: Categories, Lessons, Plans, Verifications, Placements.
-- Projects: Projects, Files, Feedback, Evaluations.
-- Competitions: Competitions, Categories, Teams, Members.
-- Events & Marketing: Events, Contacts, Assignments.
-- Reporting & Notifications: Aggregate reporting services and notifications.
+Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-This repository contains the AMS domain modules and scaffolding to integrate into a Laravel 11 app. It does not include the full Laravel skeleton. Follow the Quick Start to bootstrap a Laravel app and then merge these modules.
+## Learning Laravel
 
+Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+
+You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+
+If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+
+## Laravel Sponsors
+
+We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+
+### Premium Partners
+
+- **[Vehikl](https://vehikl.com)**
+- **[Tighten Co.](https://tighten.co)**
+- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
+- **[64 Robots](https://64robots.com)**
+- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
+- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
+- **[Redberry](https://redberry.international/laravel-development)**
+- **[Active Logic](https://activelogic.com)**
+
+## Contributing
+
+Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+
+## Code of Conduct
+
+In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+
+## Security Vulnerabilities
+
+If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+
+## License
+
+The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
