@@ -8,6 +8,7 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 use Modules\Shared\Traits\HasUuid;
+use Spatie\Permission\Models\Role;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -23,5 +24,12 @@ class User extends Authenticatable implements MustVerifyEmail
         'email_verified_at' => 'datetime',
         'is_coach' => 'boolean',
     ];
+
+    public function initializeDefaultCoachRole(): void
+    {
+        if ($this->wasRecentlyCreated && $this->is_coach && ! $this->hasRole('Coaches')) {
+            $this->assignRole('Coaches');
+        }
+    }
 }
 

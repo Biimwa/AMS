@@ -8,6 +8,8 @@ use Filament\Resources\Form;
 use Filament\Resources\Table;
 use Filament\Resources\Resource;
 use Modules\UserManagement\Models\User;
+use Spatie\Permission\Models\Role;
+use Filament\Resources\Pages\Page;
 
 class UserResource extends Resource
 {
@@ -23,6 +25,11 @@ class UserResource extends Resource
             Forms\Components\TextInput::make('phone'),
             Forms\Components\Toggle::make('is_coach'),
             Forms\Components\TextInput::make('password')->password()->dehydrateStateUsing(fn ($s) => $s ? bcrypt($s) : null)->dehydrated(fn ($s) => filled($s))->required(fn ($record) => $record === null),
+            Forms\Components\Select::make('roles')
+                ->multiple()
+                ->relationship('roles', 'name')
+                ->preload()
+                ->options(fn () => Role::query()->pluck('name', 'id')),
         ]);
     }
 
@@ -34,6 +41,13 @@ class UserResource extends Resource
             Tables\Columns\IconColumn::make('is_coach')->boolean(),
             Tables\Columns\TextColumn::make('created_at')->dateTime()->sortable(),
         ])->filters([]);
+    }
+
+    public static function getPages(): array
+    {
+        return [
+            'index' => Pages\ManageUsers::route('/'),
+        ];
     }
 }
 

@@ -22,7 +22,16 @@ class DatabaseSeeder extends Seeder
             ProgramsSeeder::class,
         ]);
 
-        // Create an admin user with CEO role
+        // Create seeded admin users
+        if (! User::where('email', 'founder@ams.local')->exists()) {
+            $founder = User::create([
+                'name' => 'AMS Founder',
+                'email' => 'founder@ams.local',
+                'password' => Hash::make('password'),
+                'is_coach' => false,
+            ]);
+            $founder->assignRole('Founder');
+        }
         if (! User::where('email', 'admin@ams.local')->exists()) {
             $admin = User::create([
                 'name' => 'AMS Admin',

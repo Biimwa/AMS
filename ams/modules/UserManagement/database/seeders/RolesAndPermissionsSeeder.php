@@ -13,8 +13,12 @@ class RolesAndPermissionsSeeder extends Seeder
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
         $permissions = [
-            'manage users', 'view users', 'message users',
+            // Users & Roles
+            'manage users', 'view users', 'assign roles', 'message users',
+
+            // Core entities
             'manage schools', 'view schools',
+            'manage students', 'view students',
             'manage clubs', 'view clubs',
             'manage groups', 'view groups',
             'manage lessons', 'view lessons', 'verify lessons',
@@ -40,7 +44,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'Coaches' => [
                 'view programs', 'view lessons', 'manage lessons', 'view projects', 'manage projects', 'message users'
             ],
-            'IT Admins' => ['manage users', 'view users', 'manage reports'],
+            'IT Admins' => ['manage users', 'view users', 'assign roles', 'manage reports'],
             'Marketing Managers' => ['manage events', 'view events', 'manage reports'],
             'Social Media Managers' => ['view events', 'view reports'],
         ];
