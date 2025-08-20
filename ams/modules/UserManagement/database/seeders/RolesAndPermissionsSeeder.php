@@ -14,20 +14,20 @@ class RolesAndPermissionsSeeder extends Seeder
 
         $permissions = [
             // Users & Roles
-            'manage users', 'view users', 'assign roles', 'message users',
+            'manage users', 'view users', 'assign roles', 'message users', 'create users', 'delete users',
 
             // Core entities
             'manage schools', 'view schools',
             'manage students', 'view students',
             'manage clubs', 'view clubs',
             'manage groups', 'view groups',
-            'manage lessons', 'view lessons', 'verify lessons',
+            'manage lessons', 'view lessons', 'verify lessons', 'create lessons', 'delete lessons',
             'manage programs', 'view programs',
             'manage projects', 'view projects',
             'manage competitions', 'view competitions',
             'manage events', 'view events',
             'manage reports', 'view reports',
-            'manage complaints', 'view complaints',
+            'manage complaints', 'view complaints', 'create students', 'delete students',
         ];
 
         foreach ($permissions as $perm) {
@@ -44,7 +44,7 @@ class RolesAndPermissionsSeeder extends Seeder
             'Coaches' => [
                 'view programs', 'view lessons', 'manage lessons', 'view projects', 'manage projects', 'message users'
             ],
-            'IT Admins' => ['manage users', 'view users', 'assign roles', 'manage reports'],
+            'IT Admins' => ['manage users', 'view users', 'assign roles', 'manage reports', 'create users', 'delete users'],
             'Marketing Managers' => ['manage events', 'view events', 'manage reports'],
             'Social Media Managers' => ['view events', 'view reports'],
         ];

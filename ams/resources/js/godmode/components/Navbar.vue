@@ -6,6 +6,8 @@
         <router-link to="/dashboard" class="hover:text-indigo-600">Dashboard</router-link>
         <router-link to="/schools" class="hover:text-indigo-600">Schools</router-link>
         <router-link to="/students" class="hover:text-indigo-600">Students</router-link>
+        <router-link to="/messages" class="hover:text-indigo-600">Messages</router-link>
+        <router-link to="/complaint" class="hover:text-indigo-600">Complaint</router-link>
         <router-link to="/login" class="hover:text-indigo-600">Sign In</router-link>
       </nav>
     </div>
